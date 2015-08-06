@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3140.robot.commands.Pneumatics;
+package org.usfirst.frc.team3140.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
