@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Pneumatics extends Subsystem implements RobotMap {
     
 	private static Pneumatics instance;
-	private DoubleSolenoid top, bottom;
+	private DoubleSolenoid top;
 	private Compressor comp;
 	
 	/**
@@ -24,7 +24,7 @@ public class Pneumatics extends Subsystem implements RobotMap {
 		comp = new Compressor();
 		comp.start();
 		top = new DoubleSolenoid(kTopGrabberA, kTopGrabberB);
-		bottom = new DoubleSolenoid(kBottomGrabberA, kBottomGrabberB);
+		//bottom = new DoubleSolenoid(kBottomGrabberA, kBottomGrabberB);
 	}
 	
 	/**
@@ -43,6 +43,19 @@ public class Pneumatics extends Subsystem implements RobotMap {
 
     public void initDefaultCommand() {
 	        setDefaultCommand(null);
+    }
+    
+    /******************************************************************
+     * The following methods are used in commands
+     * Solenoids are either set to EXT or RET (extend or retract)
+     * these values correspond to RobotMap variables
+     ******************************************************************/
+    public void ToggleOpen() {
+    	top.set(EXT);
+    }
+    
+    public void ToggleClose() {
+    	top.set(RET);
     }
 }
 

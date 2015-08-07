@@ -19,8 +19,8 @@ public interface RobotMap {
 	 * Joystick buttons
 	 */
 	//DriveStick's buttons
-	public static int kGrabber = 1;
-	public static int kArm = 2;
+	public static int kGrab = 1;
+	public static int kLeggo = 2;
 	
 	/*
 	 *  END OF EDITABLE CONSTANTS, DENOTED BY (!!!)
@@ -43,11 +43,11 @@ public interface RobotMap {
 	/**
 	 * Digital I/O (!!!)
 	 */
-	public static int kLeftDriveEncoderA = 12;
-	public static int kLeftDriveEncoderB = 13;
+	public static int kLeftDriveEncoderA = 3;
+	public static int kLeftDriveEncoderB = 4;
 	
-	public static int kRightDriveEncoderA = 0;
-	public static int kRightDriveEncoderB = 1;
+	public static int kRightDriveEncoderA = 1;
+	public static int kRightDriveEncoderB = 2;
 	
 	/**
 	 * Pneumatics (!!!)
