@@ -13,7 +13,7 @@ import org.usfirst.frc.team3140.robot.commands.*;
 public class OI implements RobotMap {
 	
 	private static SmartJoystick dStick;
-	private JoystickButton grab, leggo;
+	private JoystickButton bottomGrab, topGrab;
 	
 	/**
 	 * Assigns joysticks to a port
@@ -29,8 +29,8 @@ public class OI implements RobotMap {
 	 * Calls check() method
 	 */
 	private void tie() {
-		grab = new JoystickButton(dStick, kGrabber);
-		leggo = new JoystickButton(dStick, kArm);
+		bottomGrab = new JoystickButton(dStick, kGrabber);
+		topGrab = new JoystickButton(dStick, kArm);
 		check();
 	}
 	
@@ -40,8 +40,8 @@ public class OI implements RobotMap {
 	 * @throws InterruptedException
 	 */
 	private void check() {
-		grab.whenPressed(new Grab());
-		leggo.whenPressed(new Release());
+		bottomGrab.whenPressed(new BottomGrabber());
+		topGrab.whenPressed(new TopGrabber());
 	}
 	
 	public static SmartJoystick getDriveStick() {

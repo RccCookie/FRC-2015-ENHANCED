@@ -29,15 +29,15 @@ public interface RobotMap {
 	/**
 	 * Motors (!!!)
 	 */
-	public static int kLeftDriveMotorPWM = 1;
+	public static int kLeftDriveMotorPWM = 0;
 	public static int kLeftDriveMotorPDP1 = 14;
 	public static int kLeftDriveMotorPDP2 = 15;
 	
-	public static int kRightDriveMotorPWM = 2;
+	public static int kRightDriveMotorPWM = 1;
 	public static int kRightDriveMotorPDP1 = 0;
 	public static int kRightDriveMotorPDP2 = 1;
 	
-	public static int kWinchMotorPWM = 3;
+	public static int kWinchMotorPWM = 9;
 	public static int kWinchMotorPDP = 4;
 	
 	/**
@@ -52,8 +52,8 @@ public interface RobotMap {
 	/**
 	 * Pneumatics (!!!)
 	 */
-	public static int kTopGrabberA = 0;
-	public static int kTopGrabberB = 1;
+	public static int kTopGrabberA = 6;
+	public static int kTopGrabberB = 7;
 	
 	public static int kBottomGrabberA = 2;
 	public static int kBottomGrabberB = 3;
@@ -63,5 +63,22 @@ public interface RobotMap {
 	
 	public static Value EXT = DoubleSolenoid.Value.kForward;
 	public static Value RET = DoubleSolenoid.Value.kReverse;
+	
+	/**
+	 * PID Controller
+	 */
+	public static double kAbsTol = 1;
+	public static double kDistancePerPulse = 0.005;
+	public static double kP = 0.4;
+	public static double kI = 0.1;
+	public static double kD = 9;
+	public static double kOutRangeL = -0.8;
+	public static double kOutRangeH = 0.8;
+	
+	/**
+	 * Autonomous-Distances in Feet
+	 */
+	public static double kLeft180= 6;
+	public static double kRight180 = 6;
 	
 }
