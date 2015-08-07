@@ -46,10 +46,10 @@ public class Drivetrain extends Subsystem implements RobotMap {
 	}
 
 	public void arcadeDrive() {
-		lT = OI.getDriveStick().getSmartX() + OI.getDriveStick().getSmartY();
-		rT = -1 * OI.getDriveStick().getSmartX() - OI.getDriveStick().getSmartY();
+		lT = OI.getDriveStick().getSmartX() - OI.getDriveStick().getSmartY();
+		rT = OI.getDriveStick().getSmartX() + OI.getDriveStick().getSmartY();
 
-		maxV = Math.max(Math.abs(lT), Math.abs(rT));
+		//maxV = Math.max(Math.abs(lT), Math.abs(rT));
 
 		if (maxV > 1) {
 			lT = lT / maxV;
@@ -84,6 +84,7 @@ public class Drivetrain extends Subsystem implements RobotMap {
      * -When enabled, the system moves the wheels to desired setpoint
      * -If always on, the system constantly tries to move to desired
      *  spot, leading to jittering of the wheels
+     *  @throws NullPointerException
      ******************************************************************/
 	public void reset() {
 		lP.reInit();

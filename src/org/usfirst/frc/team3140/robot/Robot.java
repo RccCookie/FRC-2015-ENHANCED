@@ -35,6 +35,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		dt = Drivetrain.getInstance();
 		air = Pneumatics.getInstance();
+		lift = WinchLifter.getInstance();
     	
     	oi = new OI();
         // instantiate the command used for the autonomous period

@@ -2,6 +2,7 @@ package org.usfirst.frc.team3140.robot.subsystems;
 
 import org.usfirst.frc.team3140.robot.OI;
 import org.usfirst.frc.team3140.robot.RobotMap;
+import org.usfirst.frc.team3140.robot.commands.Lifter;
 
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Talon;
@@ -32,13 +33,21 @@ public class WinchLifter extends Subsystem implements RobotMap {
 	}
 	
 	public void winchLifter() {
-		lT = OI.getDriveStick().getSmartPOV();
+		if(OI.getDriveStick().getSmartPOV() == 360) {
+			lT = 1.0;
+		}else if(OI.getDriveStick().getSmartPOV() == 180) {
+			lT = -1.0;
+		}else{
+			lT = 0.0;
+		}
 		
 		lift.set(lT);
 	}
 	
-	public void autoWInchLifter(int speed) {
+	public void autoWinchLifter(double speed) {
 		lift.set(speed);
+		
+		
 	}
 	
 	public void startTime(){
@@ -57,8 +66,7 @@ public class WinchLifter extends Subsystem implements RobotMap {
     }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(null);
     }
 }
 

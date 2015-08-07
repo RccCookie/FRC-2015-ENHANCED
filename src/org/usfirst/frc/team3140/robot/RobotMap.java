@@ -21,7 +21,10 @@ public interface RobotMap {
 	//DriveStick's buttons
 	public static int kGrab = 1;
 	public static int kLeggo = 2;
-	
+	public static int kUp1 = 5;
+	public static int kUp2 = 6;
+	public static int kDown1 = 3;
+	public static int kDown2 = 4;
 	/*
 	 *  END OF EDITABLE CONSTANTS, DENOTED BY (!!!)
 	 */
@@ -29,11 +32,11 @@ public interface RobotMap {
 	/**
 	 * Motors (!!!)
 	 */
-	public static int kLeftDriveMotorPWM = 0;
+	public static int kLeftDriveMotorPWM = 1;
 	public static int kLeftDriveMotorPDP1 = 14;
 	public static int kLeftDriveMotorPDP2 = 15;
 	
-	public static int kRightDriveMotorPWM = 1;
+	public static int kRightDriveMotorPWM = 0;
 	public static int kRightDriveMotorPDP1 = 0;
 	public static int kRightDriveMotorPDP2 = 1;
 	

@@ -18,7 +18,7 @@ public class SmartJoystick extends Joystick {
 	 * @return the value-cubed for smoother-driving.
 	 */
 	public double getSmartX() {
-		return Math.pow(super.getX(), 3);
+		return Math.pow(super.getX(), 3) * -1;
 	}
 
 	/**
@@ -37,11 +37,6 @@ public class SmartJoystick extends Joystick {
 	 * @return 1.0, 0, or -1.0
 	 */
 	public double getSmartPOV() {
-		if (super.getPOV() == 0) {
-			return 1.0;
-		} else if (super.getPOV() == 180) {
-			return -1.0;
-		}
-		return 0;
+		return super.getPOV();
 	}
 }
