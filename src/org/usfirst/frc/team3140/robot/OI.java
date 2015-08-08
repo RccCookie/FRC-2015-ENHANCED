@@ -5,6 +5,7 @@ import org.usfirst.frc.team3140.robot.library.SmartJoystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team3140.robot.commands.*;
+import org.usfirst.frc.team3140.robot.commands.auto.AutoLifter;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -13,7 +14,7 @@ import org.usfirst.frc.team3140.robot.commands.*;
 public class OI implements RobotMap {
 	
 	private static SmartJoystick dStick;
-	private JoystickButton grab, leggo, up1, up2, down1, down2;
+	private JoystickButton grab, leggo, up1, up2, down1, down2, auto1;
 	
 	/**
 	 * Assigns joysticks to a port
@@ -35,6 +36,7 @@ public class OI implements RobotMap {
 		up2 = new JoystickButton(dStick, kUp2);
 		down1 = new JoystickButton(dStick, kDown1);
 		down2 = new JoystickButton(dStick, kDown2);
+		auto1 = new JoystickButton(dStick, 11);
 		check();
 	}
 	
@@ -54,6 +56,7 @@ public class OI implements RobotMap {
 		up2.whenReleased(new Lifter(0.0));
 		down1.whenReleased(new Lifter(0.0));
 		down2.whenReleased(new Lifter(0.0));
+		auto1.whenPressed(new AutoLifter(-0.5, 1000));
 	}
 	
 	public static SmartJoystick getDriveStick() {

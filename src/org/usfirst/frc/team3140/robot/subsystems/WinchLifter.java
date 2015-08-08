@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -32,23 +33,19 @@ public class WinchLifter extends Subsystem implements RobotMap {
 		return instance;
 	}
 	
-	public void winchLifter() {
-		if(OI.getDriveStick().getSmartPOV() == 360) {
-			lT = 1.0;
-		}else if(OI.getDriveStick().getSmartPOV() == 180) {
-			lT = -1.0;
-		}else{
-			lT = 0.0;
-		}
-		
-		lift.set(lT);
+	public void winchLifter(double speed) {
+		lift.set(speed);
 	}
 	
-	public void autoWinchLifter(double speed) {
-		lift.set(speed);
-		
-		
+	public void moveTo(double speed, double time) {
+		double cTime;
+		double iTime = System.currentTimeMillis();
+		this.winchLifter(speed);
+		do {
+			cTime = System.currentTimeMillis();
+		} while (cTime - iTime <= time);
 	}
+
 	
 	public void startTime(){
     	System.out.println("timer started");

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3140.robot.commands;
+package org.usfirst.frc.team3140.robot.commands.auto;
 
 import org.usfirst.frc.team3140.robot.Robot;
 
@@ -7,13 +7,15 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Lifter extends Command {
+public class AutoLifter extends Command {
 
 	double speed;
+	double time; //In milliseconds
 	
-    public Lifter(double d) {
+    public AutoLifter(double speed, double time) {
     	requires(Robot.lift);
-    	this.speed = d;
+    	this.speed = speed;
+    	this.time = time;
     }
 
     // Called just before this Command runs the first time
@@ -22,7 +24,7 @@ public class Lifter extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.winchLifter(speed);
+    	Robot.lift.moveTo(speed, time);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,6 +34,7 @@ public class Lifter extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.lift.moveTo(0, 0);
     }
 
     // Called when another command which requires one or more of the same
