@@ -1,9 +1,8 @@
-package org.usfirst.frc.team3140.robot.subsystems;
+package robot.subsystems;
 
-import org.usfirst.frc.team3140.robot.OI;
-import org.usfirst.frc.team3140.robot.RobotMap;
-import org.usfirst.frc.team3140.robot.commands.Lifter;
-
+import robot.OI;
+import robot.RobotMap;
+import robot.commands.Lifter;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Timer;

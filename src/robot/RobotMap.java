@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3140.robot;
+package robot;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;

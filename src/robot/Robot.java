@@ -1,13 +1,12 @@
 
-package org.usfirst.frc.team3140.robot;
+package robot;
 
-import org.usfirst.frc.team3140.robot.commands.DriveForward;
-import org.usfirst.frc.team3140.robot.commands.groups.Autonomous1;
-import org.usfirst.frc.team3140.robot.commands.groups.GrabAndLift;
-import org.usfirst.frc.team3140.robot.subsystems.Drivetrain;
-import org.usfirst.frc.team3140.robot.subsystems.Pneumatics;
-import org.usfirst.frc.team3140.robot.subsystems.WinchLifter;
-
+import robot.commands.DriveForward;
+import robot.commands.groups.Autonomous1;
+import robot.commands.groups.GrabAndLift;
+import robot.subsystems.Drivetrain;
+import robot.subsystems.Pneumatics;
+import robot.subsystems.WinchLifter;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;

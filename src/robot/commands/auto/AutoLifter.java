@@ -1,19 +1,20 @@
-package org.usfirst.frc.team3140.robot.commands;
+package robot.commands.auto;
 
-import org.usfirst.frc.team3140.robot.Robot;
-
+import robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class DriveForward extends Command {
+public class AutoLifter extends Command {
 
-	double distance;
+	double speed;
+	double time; //In milliseconds
 	
-    public DriveForward(double distance) {
-    	requires(Robot.dt);
-    	this.distance = distance;
+    public AutoLifter(double speed, double time) {
+    	requires(Robot.lift);
+    	this.speed = speed;
+    	this.time = time;
     }
 
     // Called just before this Command runs the first time
@@ -22,7 +23,7 @@ public class DriveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.dt.DriveForward(0.25, distance);
+    	Robot.lift.moveTo(speed, time);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,6 +33,7 @@ public class DriveForward extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.lift.moveTo(0, 0);
     }
 
     // Called when another command which requires one or more of the same

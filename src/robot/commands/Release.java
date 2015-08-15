@@ -1,19 +1,15 @@
-package org.usfirst.frc.team3140.robot.commands;
+package robot.commands;
 
-import org.usfirst.frc.team3140.robot.Robot;
-
+import robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Lifter extends Command {
+public class Release extends Command {
 
-	double speed;
-	
-    public Lifter(double d) {
-    	requires(Robot.lift);
-    	this.speed = d;
+    public Release() {
+    	requires(Robot.air);
     }
 
     // Called just before this Command runs the first time
@@ -22,7 +18,7 @@ public class Lifter extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.winchLifter(speed);
+    	Robot.air.ToggleOpen();
     }
 
     // Make this return true when this Command no longer needs to run execute()

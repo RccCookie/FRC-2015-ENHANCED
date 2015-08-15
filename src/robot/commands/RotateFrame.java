@@ -1,16 +1,21 @@
-package org.usfirst.frc.team3140.robot.commands;
+package robot.commands;
 
-import org.usfirst.frc.team3140.robot.Robot;
-
+import robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Release extends Command {
-
-    public Release() {
-    	requires(Robot.air);
+public class RotateFrame extends Command {
+	double speed;
+	double distance;
+	double direction;
+	
+    public RotateFrame(double s, double dist, double dir) {
+    	requires(Robot.dt);
+    	this.speed = s;
+    	this.distance = dist;
+    	this.direction = dir;
     }
 
     // Called just before this Command runs the first time
@@ -19,12 +24,12 @@ public class Release extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.air.ToggleOpen();
+    	Robot.dt.RotateFrame(speed, distance, direction);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

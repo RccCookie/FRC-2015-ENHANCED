@@ -1,18 +1,17 @@
-package org.usfirst.frc.team3140.robot.commands;
+package robot.commands;
 
-import org.usfirst.frc.team3140.robot.Robot;
-
+import robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class PauseDrive extends Command {
+public class PauseLift extends Command {
 
 	double time;
 	
-    public PauseDrive(double milli) {
-    	requires(Robot.dt);
+    public PauseLift(double milli) {
+    	requires(Robot.lift);
     }
 
     // Called just before this Command runs the first time

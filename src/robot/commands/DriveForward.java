@@ -1,16 +1,18 @@
-package org.usfirst.frc.team3140.robot.commands;
+package robot.commands;
 
-import org.usfirst.frc.team3140.robot.Robot;
-
+import robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Grab extends Command {
+public class DriveForward extends Command {
 
-    public Grab() {
-    	requires(Robot.air);
+	double distance;
+	
+    public DriveForward(double distance) {
+    	requires(Robot.dt);
+    	this.distance = distance;
     }
 
     // Called just before this Command runs the first time
@@ -19,7 +21,7 @@ public class Grab extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.air.ToggleClose();
+    	Robot.dt.DriveForward(0.25, distance);
     }
 
     // Make this return true when this Command no longer needs to run execute()

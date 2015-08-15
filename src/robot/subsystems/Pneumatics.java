@@ -1,7 +1,6 @@
-package org.usfirst.frc.team3140.robot.subsystems;
+package robot.subsystems;
 
-import org.usfirst.frc.team3140.robot.RobotMap;
-
+import robot.RobotMap;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;

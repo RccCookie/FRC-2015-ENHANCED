@@ -1,9 +1,8 @@
-package org.usfirst.frc.team3140.robot.subsystems;
+package robot.subsystems;
 
-import org.usfirst.frc.team3140.robot.OI;
-import org.usfirst.frc.team3140.robot.RobotMap;
-import org.usfirst.frc.team3140.robot.commands.ArcadeDrive;
-
+import robot.OI;
+import robot.RobotMap;
+import robot.commands.ArcadeDrive;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;

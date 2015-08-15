@@ -1,46 +1,40 @@
-package org.usfirst.frc.team3140.robot.commands.auto;
+package robot.commands;
 
-import org.usfirst.frc.team3140.robot.Robot;
-
+import robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class AutoDrive extends Command {
+public class Lifter extends Command {
 
-	double distance;
+	double speed;
 	
-    public AutoDrive(double distance) {
-    	requires(Robot.dt);
-    	this.distance = distance;
+    public Lifter(double d) {
+    	requires(Robot.lift);
+    	this.speed = d;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.dt.reset();
-    	Robot.dt.enable();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.dt.drive(distance);
+    	Robot.lift.winchLifter(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.dt.itDone();
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.dt.reset();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.dt.lP.disable();
-    	Robot.dt.rP.disable();
     }
 }

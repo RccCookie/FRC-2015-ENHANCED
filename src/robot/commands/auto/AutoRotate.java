@@ -1,30 +1,36 @@
-package org.usfirst.frc.team3140.robot.commands;
+package robot.commands.auto;
 
-import org.usfirst.frc.team3140.robot.Robot;
-
+import robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ArcadeDrive extends Command {
+public class AutoRotate extends Command {
 
-    public ArcadeDrive() {
+	boolean half;
+	int direction;
+	
+    public AutoRotate(boolean half, int direction) {
     	requires(Robot.dt);
+    	this.half = half;
+    	this.direction = direction;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.dt.reset();
+    	Robot.dt.enable();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.dt.arcadeDrive();
+    	Robot.dt.rotate(half, direction);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.dt.itDone();
     }
 
     // Called once after isFinished returns true

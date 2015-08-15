@@ -1,32 +1,29 @@
-package org.usfirst.frc.team3140.robot.commands;
+package robot.commands;
 
-import org.usfirst.frc.team3140.robot.Robot;
-
+import robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class PauseLift extends Command {
+public class ArcadeDrive extends Command {
 
-	double time;
-	
-    public PauseLift(double milli) {
-    	requires(Robot.lift);
+    public ArcadeDrive() {
+    	requires(Robot.dt);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.dt.startTime();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.dt.arcadeDrive();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Robot.dt.waitForComplete(time);
+        return false;
     }
 
     // Called once after isFinished returns true

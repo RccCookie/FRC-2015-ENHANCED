@@ -1,21 +1,18 @@
-package org.usfirst.frc.team3140.robot.commands.auto;
+package robot.commands.auto;
 
-import org.usfirst.frc.team3140.robot.Robot;
-
+import robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class AutoRotate extends Command {
+public class AutoDrive extends Command {
 
-	boolean half;
-	int direction;
+	double distance;
 	
-    public AutoRotate(boolean half, int direction) {
+    public AutoDrive(double distance) {
     	requires(Robot.dt);
-    	this.half = half;
-    	this.direction = direction;
+    	this.distance = distance;
     }
 
     // Called just before this Command runs the first time
@@ -26,7 +23,7 @@ public class AutoRotate extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.dt.rotate(half, direction);
+    	Robot.dt.drive(distance);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -36,10 +33,13 @@ public class AutoRotate extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.dt.reset();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.dt.lP.disable();
+    	Robot.dt.rP.disable();
     }
 }

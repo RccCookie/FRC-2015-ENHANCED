@@ -1,9 +1,8 @@
-package org.usfirst.frc.team3140.robot.commands.groups;
+package robot.commands.groups;
 
-import org.usfirst.frc.team3140.robot.commands.DriveForward;
-import org.usfirst.frc.team3140.robot.commands.RotateFrame;
-import org.usfirst.frc.team3140.robot.commands.auto.AutoDrive;
-
+import robot.commands.DriveForward;
+import robot.commands.RotateFrame;
+import robot.commands.auto.AutoDrive;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**

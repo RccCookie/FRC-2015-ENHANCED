@@ -1,12 +1,11 @@
-package org.usfirst.frc.team3140.robot;
+package robot;
 
-import org.usfirst.frc.team3140.robot.commands.Grab;
-import org.usfirst.frc.team3140.robot.commands.Lifter;
-import org.usfirst.frc.team3140.robot.commands.Release;
-import org.usfirst.frc.team3140.robot.commands.auto.AutoLifter;
-import org.usfirst.frc.team3140.robot.commands.groups.GrabAndLift;
-import org.usfirst.frc.team3140.robot.library.SmartJoystick;
-
+import robot.commands.Grab;
+import robot.commands.Lifter;
+import robot.commands.Release;
+import robot.commands.auto.AutoLifter;
+import robot.commands.groups.GrabAndLift;
+import library.SmartJoystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**

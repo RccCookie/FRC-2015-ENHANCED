@@ -1,7 +1,6 @@
-package org.usfirst.frc.team3140.robot.subsystems;
+package robot.subsystems;
 
-import org.usfirst.frc.team3140.robot.RobotMap;
-
+import robot.RobotMap;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.Talon;

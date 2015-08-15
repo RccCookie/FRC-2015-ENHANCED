@@ -1,8 +1,7 @@
-package org.usfirst.frc.team3140.robot.commands.groups;
+package robot.commands.groups;
 
-import org.usfirst.frc.team3140.robot.commands.*;
-import org.usfirst.frc.team3140.robot.commands.auto.*;
-
+import robot.commands.*;
+import robot.commands.auto.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
