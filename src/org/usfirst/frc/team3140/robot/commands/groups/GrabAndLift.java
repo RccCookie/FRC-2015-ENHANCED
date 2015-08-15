@@ -1,18 +1,18 @@
-package org.usfirst.frc.team3140.robot.commands.auto;
+package org.usfirst.frc.team3140.robot.commands.groups;
 
 import org.usfirst.frc.team3140.robot.commands.*;
+import org.usfirst.frc.team3140.robot.commands.auto.*;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class AU extends CommandGroup {
+public class GrabAndLift extends CommandGroup {
     
-    public  AU() {
-    	addSequential(new AutoDrive(5));
-    	addSequential(new PauseDrive(1));
-    	addSequential(new AutoRotate(true, 1));
+    public  GrabAndLift() {
+    	addSequential(new Grab());
+    	addSequential(new AutoLifter(-0.5, 2000));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

@@ -1,11 +1,13 @@
 package org.usfirst.frc.team3140.robot;
 
+import org.usfirst.frc.team3140.robot.commands.Grab;
+import org.usfirst.frc.team3140.robot.commands.Lifter;
+import org.usfirst.frc.team3140.robot.commands.Release;
+import org.usfirst.frc.team3140.robot.commands.auto.AutoLifter;
+import org.usfirst.frc.team3140.robot.commands.groups.GrabAndLift;
 import org.usfirst.frc.team3140.robot.library.SmartJoystick;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
-import org.usfirst.frc.team3140.robot.commands.*;
-import org.usfirst.frc.team3140.robot.commands.auto.AutoLifter;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -14,7 +16,7 @@ import org.usfirst.frc.team3140.robot.commands.auto.AutoLifter;
 public class OI implements RobotMap {
 	
 	private static SmartJoystick dStick;
-	private JoystickButton grab, leggo, up1, up2, down1, down2, auto1;
+	private JoystickButton grab, leggo, up1, up2, down1, down2, auto1, gl;
 	
 	/**
 	 * Assigns joysticks to a port
@@ -37,6 +39,7 @@ public class OI implements RobotMap {
 		down1 = new JoystickButton(dStick, kDown1);
 		down2 = new JoystickButton(dStick, kDown2);
 		auto1 = new JoystickButton(dStick, 11);
+		gl = new JoystickButton(dStick, 12);
 		check();
 	}
 	
@@ -48,15 +51,16 @@ public class OI implements RobotMap {
 	private void check() {
 		grab.whenPressed(new Grab());
 		leggo.whenPressed(new Release());
-		up1.whenPressed(new Lifter(-1.0));
-		up2.whenPressed(new Lifter(-1.0));
-		down1.whenPressed(new Lifter(1.0));
-		down2.whenPressed(new Lifter(1.0));
-		up1.whenReleased(new Lifter(0.0));
-		up2.whenReleased(new Lifter(0.0));
-		down1.whenReleased(new Lifter(0.0));
-		down2.whenReleased(new Lifter(0.0));
+		up1.whenPressed(new Lifter(-0.8));
+		up2.whenPressed(new Lifter(-0.8));
+		down1.whenPressed(new Lifter(0.8));
+		down2.whenPressed(new Lifter(0.8));
+		up1.whenReleased(new Lifter(0.8));
+		up2.whenReleased(new Lifter(0.8));
+		down1.whenReleased(new Lifter(0.8));
+		down2.whenReleased(new Lifter(0.8));
 		auto1.whenPressed(new AutoLifter(-0.5, 1000));
+		gl.whenPressed(new GrabAndLift());
 	}
 	
 	public static SmartJoystick getDriveStick() {

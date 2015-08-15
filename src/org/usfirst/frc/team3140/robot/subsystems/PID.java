@@ -3,6 +3,7 @@ package org.usfirst.frc.team3140.robot.subsystems;
 import org.usfirst.frc.team3140.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -12,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class PID extends PIDSubsystem implements RobotMap {
 
+	Preferences pref;
     private Talon motor;
     private Encoder enc;
     
@@ -29,6 +31,7 @@ public class PID extends PIDSubsystem implements RobotMap {
     	enc.setDistancePerPulse(kDistancePerPulse);
     	this.getPIDController().setContinuous();
     	this.getPIDController().setAbsoluteTolerance(kAbsTol);
+    	pref = Preferences.getInstance();
     	
     }
     
@@ -38,7 +41,7 @@ public class PID extends PIDSubsystem implements RobotMap {
      ******************************************************************/
     public void reInit() {
     	getPIDController().reset();
-    	getPIDController().setPID(SmartDashboard.getNumber("kP"), kI, SmartDashboard.getNumber("kD"));
+    	getPIDController().setPID(0.4, 0.0, 0.0);
     	this.enc.reset();
     }
     

@@ -46,11 +46,11 @@ public interface RobotMap {
 	/**
 	 * Digital I/O (!!!)
 	 */
-	public static int kLeftDriveEncoderA = 3;
-	public static int kLeftDriveEncoderB = 4;
+	public static int kLeftDriveEncoderA = 2;
+	public static int kLeftDriveEncoderB = 3;
 	
 	public static int kRightDriveEncoderA = 1;
-	public static int kRightDriveEncoderB = 2;
+	public static int kRightDriveEncoderB = 0;
 	
 	/**
 	 * Pneumatics (!!!)
@@ -70,11 +70,11 @@ public interface RobotMap {
 	/**
 	 * PID Controller
 	 */
-	public static double kAbsTol = 1;
-	public static double kDistancePerPulse = 0.005;
+	public static double kAbsTol = 0.1;
+	public static double kDistancePerPulse = 0.0098;
 	public static double kP = 0.4;
-	public static double kI = 0.1;
-	public static double kD = 9;
+	public static double kI = 0;
+	public static double kD = 0;
 	public static double kOutRangeL = -0.8;
 	public static double kOutRangeH = 0.8;
 	

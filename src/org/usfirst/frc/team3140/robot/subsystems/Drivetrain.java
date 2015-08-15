@@ -4,6 +4,7 @@ import org.usfirst.frc.team3140.robot.OI;
 import org.usfirst.frc.team3140.robot.RobotMap;
 import org.usfirst.frc.team3140.robot.commands.ArcadeDrive;
 
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Talon;
@@ -28,6 +29,16 @@ public class Drivetrain extends Subsystem implements RobotMap {
 		pdp = new PowerDistributionPanel();
 		left = new Talon(kLeftDriveMotorPWM);
 		right = new Talon(kRightDriveMotorPWM);
+		lEncoder = new Encoder(kLeftDriveEncoderA, kLeftDriveEncoderB, false, EncodingType.k1X);
+		lEncoder.setDistancePerPulse(kDistancePerPulse);
+		lEncoder.reset();
+		rEncoder = new Encoder(kRightDriveEncoderA, kRightDriveEncoderB, false, EncodingType.k1X);
+		rEncoder.setDistancePerPulse(kDistancePerPulse);
+		rEncoder.reset();
+		lP = new PID("left", left, rEncoder);
+		rP = new PID("Right", right, rEncoder);
+		lP.setAbsoluteTolerance(1.0);
+		rP.setAbsoluteTolerance(1.0);
 	}
 
 	/**
@@ -58,6 +69,33 @@ public class Drivetrain extends Subsystem implements RobotMap {
 
 		left.set(lT);
 		right.set(rT);
+		SmartDashboard.putNumber("left distance while driving", lEncoder.getDistance());
+		SmartDashboard.putNumber("right distance while driving", rEncoder.getDistance());
+	}
+	
+	public void DriveForward(double s, double distance) {
+		reset();
+		left.set(s);
+		right.set(-1*s);
+		do {
+			SmartDashboard.putNumber("left distance", lEncoder.getDistance());
+			SmartDashboard.putNumber("right distance", rEncoder.getDistance());
+		}while (rEncoder.getDistance() <= distance);
+		left.set(0);
+		right.set(0);
+		reset();
+	}
+	
+	public void RotateFrame(double s, double distance, double dir) {
+		reset();
+		left.set(dir * s);
+		right.set(dir * s);
+		do {
+			SmartDashboard.putNumber("left distance", lEncoder.getDistance());
+			SmartDashboard.putNumber("right distance", rEncoder.getDistance());
+		}while (rEncoder.getDistance() <= distance);
+		left.set(0);
+		right.set(0);
 	}
 
 	public void logPower() {
@@ -76,7 +114,7 @@ public class Drivetrain extends Subsystem implements RobotMap {
 	 * it returns true Important for the isFinished() method in commands
 	 ******************************************************************/
 	public boolean itDone() {
-		return (lP.finished() && rP.finished());
+		return (rP.finished() && lP.finished());
 	}
 
 	/******************************************************************
@@ -123,7 +161,7 @@ public class Drivetrain extends Subsystem implements RobotMap {
 	 ******************************************************************/
 	public void drive(double distance) {
 		lP.setSetpoint(distance);
-		rP.setSetpoint(distance);
+		rP.setSetpoint(-1 * distance);
 	}
 
 	public void rotate(boolean half, int direction) {

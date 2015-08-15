@@ -1,7 +1,9 @@
 
 package org.usfirst.frc.team3140.robot;
 
-import org.usfirst.frc.team3140.robot.commands.auto.AU;
+import org.usfirst.frc.team3140.robot.commands.DriveForward;
+import org.usfirst.frc.team3140.robot.commands.groups.Autonomous1;
+import org.usfirst.frc.team3140.robot.commands.groups.GrabAndLift;
 import org.usfirst.frc.team3140.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3140.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team3140.robot.subsystems.WinchLifter;
@@ -39,7 +41,7 @@ public class Robot extends IterativeRobot {
     	
     	oi = new OI();
         // instantiate the command used for the autonomous period
-        autonomousCommand = new AU();
+        autonomousCommand = new Autonomous1();
     }
 	
 	public void disabledPeriodic() {
