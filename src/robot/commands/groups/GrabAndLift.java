@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class GrabAndLift extends CommandGroup {
     
     public  GrabAndLift() {
-    	addSequential(new Grab());
-    	addSequential(new AutoLifter(-0.5, 2000));
+    	//addSequential(new Grab());
+    	//addSequential(new AutoLifter(-0.5, 2000));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

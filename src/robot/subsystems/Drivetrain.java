@@ -56,8 +56,8 @@ public class Drivetrain extends Subsystem implements RobotMap {
 	}
 
 	public void arcadeDrive() {
-		lT = OI.getDriveStick().getSmartX() - OI.getDriveStick().getSmartY();
-		rT = OI.getDriveStick().getSmartX() + OI.getDriveStick().getSmartY();
+		lT = OI.getDriveStick().getLeftX() - OI.getDriveStick().getLeftY();
+		rT = OI.getDriveStick().getLeftX() + OI.getDriveStick().getLeftY();
 
 		//maxV = Math.max(Math.abs(lT), Math.abs(rT));
 
