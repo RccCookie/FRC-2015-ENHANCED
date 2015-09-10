@@ -23,17 +23,17 @@ public class AnalogGyro extends Gyro {
    */
     public AnalogGyro(int port, int sensitivty) {
     super(port);
-    super.setSensitivity(sensitivity);
+    super.setSensitivity(sensitivty);
   }
   
     public AnalogGyro(int port, int sensitivty, PIDSourceParameter source) {
       super(port);
-      super.setSensitivity(sensitivity);
+      super.setSensitivity(sensitivty);
       super.setPIDSourceParameter(source);
   }
   
   public void init() {
-    super.gyroInit();
+    super.initGyro();
   }
   
   public void reset() {
